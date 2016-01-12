@@ -1,0 +1,19 @@
+img {
+	margin-top: 20px;
+}
+
+#container {
+margin-top: 30px;
+}
+
+#info {
+	margin-top: 50px;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0px;
+	font-size: 1.1em;
+}
+
+// remove li bullets
