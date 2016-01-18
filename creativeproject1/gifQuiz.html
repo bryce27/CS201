@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>GIF Quiz</title>
+  
+</head>
+<body>
+	<script type="text/javascript">
+  	var questionArray = [
+  ["In politics:", "a. I don't care ", "b. I have very strong opinions ", "c. Galactic Senate is better than an Empire ", "d. I'm racist, but I want to be president"], 
+  ["On a lazy day:", "a. I want to just sleep in the sunlight ", "b. I buy stuff ", "c. I hang out with firends ", "d. I watch movies"], 
+  ["My friends:", "a. make fun of me ", "b. like being with me ", "c. prank me ", "d. I don't have friends"],
+  ["My major is:", "a. sciences ", "b. politics/communications ", "c. buisness ", "d. other"],
+  ["In my free time:", "a. I go on adventures with my friends ", "b. I read a good book ", "c. I watch a movie ", "d. I work. Free time is for the lazy"]
+];
+
+//populate document
+for (var i = 0; i < questionArray.length; i++){
+  document.write("<form><span class='question'>" + questionArray[i][0] + "</span><br>");
+  for (var x = 1; x < 5; x++){
+    document.write("<input type='radio' class='answer' name='answer' value='" + questionArray[i][x] + "'>" + questionArray[i][x] + "<br>");
+
+  }
+  document.write("</form><br>");
+}
+
+var characterAnswer = [
+	[0, 0, 0, 0, 'http://giphy.com/gifs/cat-cucumber-6clI1ljdm4YxO'],
+	[0, 0, 0, 1, 'http://giphy.com/gifs/cat-cucumber-6clI1ljdm4YxO'],
+	[0, 0, 0, 2, 'http://giphy.com/gifs/cat-cucumber-6clI1ljdm4YxO'],
+	[0, 0, 0, 3, 'http://giphy.com/gifs/cat-cucumber-6clI1ljdm4YxO'],
+	[0, 0, 1, 0, 'http://giphy.com/gifs/cat-cucumber-6clI1ljdm4YxO'],
+	[0, 0, 1, 1, 'http://giphy.com/gifs/cat-cucumber-6clI1ljdm4YxO'],
+	[0, 0, 1, 2, 'http://giphy.com/gifs/cat-cucumber-6clI1ljdm4YxO'],
+	[0, 0, 1, 3, 'http://giphy.com/gifs/cat-cucumber-6clI1ljdm4YxO'],
+	[0, 0, 2, 0, 'http://giphy.com/gifs/cat-cucumber-6clI1ljdm4YxO'],
+	[0, 0, 2, 0, 'http://giphy.com/gifs/cat-cucumber-6clI1ljdm4YxO'],
+	[0, 0, 2, 1, 'http://giphy.com/gifs/cat-cucumber-6clI1ljdm4YxO'],
+	[0, 0, 2, 2, 'http://giphy.com/gifs/cat-cucumber-6clI1ljdm4YxO'],
+	[0, 0, 2, 3, 'http://giphy.com/gifs/cat-cucumber-6clI1ljdm4YxO'],
+	[0, 0, 3, 0, 'http://giphy.com/gifs/cat-cucumber-6clI1ljdm4YxO'],
+	[0, 0, 3, 1, 'http://giphy.com/gifs/cat-cucumber-6clI1ljdm4YxO'],
+	[0, 0, 3, 2, 'http://giphy.com/gifs/cat-cucumber-6clI1ljdm4YxO'],
+	[0, 0, 3, 3, 'http://giphy.com/gifs/cat-cucumber-6clI1ljdm4YxO'],
+	[0, 1, 0, 0, 'http://giphy.com/gifs/corgi-sit-teach-how-to-H2ZHF0zIrCJLG'],
+	[0, 1, 0, 1, 'http://giphy.com/gifs/corgi-sit-teach-how-to-H2ZHF0zIrCJLG'],
+	[0, 1, 0, 2, 'http://giphy.com/gifs/corgi-sit-teach-how-to-H2ZHF0zIrCJLG'],
+	[0, 1, 0, 3, 'http://giphy.com/gifs/corgi-sit-teach-how-to-H2ZHF0zIrCJLG'],
+	[0, 1, 1, 0, 'http://giphy.com/gifs/corgi-sit-teach-how-to-H2ZHF0zIrCJLG'],
+	[0, 1, 1, 1, 'http://giphy.com/gifs/corgi-sit-teach-how-to-H2ZHF0zIrCJLG'],
+	[0, 1, 1, 2, 'http://giphy.com/gifs/corgi-sit-teach-how-to-H2ZHF0zIrCJLG'],
+	[0, 1, 1, 3, 'http://giphy.com/gifs/corgi-sit-teach-how-to-H2ZHF0zIrCJLG'],
+	[0, 1, 2, 0, 'http://giphy.com/gifs/corgi-sit-teach-how-to-H2ZHF0zIrCJLG'],
+	[0, 1, 2, 1, 'http://giphy.com/gifs/corgi-sit-teach-how-to-H2ZHF0zIrCJLG'],
+	[0, 1, 2, 2, 'http://giphy.com/gifs/corgi-sit-teach-how-to-H2ZHF0zIrCJLG'],
+	[0, 1, 2, 3, 'http://giphy.com/gifs/corgi-sit-teach-how-to-H2ZHF0zIrCJLG'],
+	[0, 1, 3, 0, 'http://giphy.com/gifs/corgi-sit-teach-how-to-H2ZHF0zIrCJLG'],
+	[0, 1, 3, 1, 'http://giphy.com/gifs/corgi-sit-teach-how-to-H2ZHF0zIrCJLG'],
+	[0, 1, 3, 2, 'http://giphy.com/gifs/corgi-sit-teach-how-to-H2ZHF0zIrCJLG'],
+	[0, 1, 3, 3, 'http://giphy.com/gifs/corgi-sit-teach-how-to-H2ZHF0zIrCJLG'],
+	[0, 2, 0, 0, 'nicloas'],
+	[0, 2, 0, 1, 'nicloas'],
+	[0, 2, 0, 2, 'nicloas'],
+	[0, 2, 0, 3, 'nicloas'],
+	[0, 2, 1, 0, 'nicloas'],
+	[0, 2, 1, 1, 'nicloas'],
+	[0, 2, 1, 2, 'nicloas'],
+	[0, 2, 1, 3, 'nicloas'],
+	[0, 2, 2, 0, 'nicloas'],
+	[0, 2, 2, 1, 'nicloas'],
+	[0, 2, 2, 2, 'nicloas'],
+	[0, 2, 2, 3, 'nicloas'],
+	[0, 2, 3, 0, 'nicloas'],
+	[0, 2, 3, 1, 'nicloas'],
+	[0, 2, 3, 2, 'nicloas'],
+	[0, 2, 3, 3, 'nicloas'],
+	[0, 3, 0, 0, 'grandmas'],
+	[0, 3, 0, 1, 'grandmas'],
+	[0, 3, 0, 2, 'grandmas'],
+	[0, 3, 0, 3, 'grandmas'],
+	[0, 3, 1, 0, 'grandmas'],
+	[0, 3, 1, 1, 'grandmas'],
+	[0, 3, 1, 2, 'grandmas'],
+	[0, 3, 1, 3, 'grandmas'],
+	[0, 3, 2, 0, 'grandmas'],
+	[0, 3, 2, 1, 'grandmas'],
+	[0, 3, 2, 2, 'grandmas'],
+	[0, 3, 2, 3, 'grandmas'],
+	[0, 3, 3, 0, 'grandmas'],
+	[0, 3, 3, 1, 'grandmas'],
+	[0, 3, 3, 2, 'grandmas'],
+	[0, 3, 3, 3, 'grandmas']
+
+
+	  
+];
+
+//add click check event listeners
+var inputs = document.getElementsByTagName('input');
+for(var i = 0; i < inputs.length; i++){
+  inputs[i].addEventListener('click', check);
+}
+
+var userAnswers = [];
+
+//check questions answers
+function check(){
+  userAnswers = [];
+  var c = 0;
+  for(var i = 0; i < inputs.length; i++){
+    if(inputs[i].checked) {
+      userAnswers.push(i%4);
+      c++;
+    }
+  }
+  if(c==questionArray.length) rate();
+}
+
+//rate the answers per char
+function rate(){
+  console.log(userAnswers);
+  for(var i = 0; i < userAnswers.length; i++){
+    for(var j = 0; j < characterAnswer.length; j++){
+      characterAnswer[j][5] = 0;
+      for(var x = 0; x < 5; x++){
+        if(userAnswers[i] == characterAnswer[j][x])
+          characterAnswer[j][5]++;
+      }
+    }
+  }
+  answer();
+}
+
+function answer(){
+  var a = 0, t;
+  for(var j = 0; j < characterAnswer.length; j++){
+    if(characterAnswer[j][5] > a) {
+      a = characterAnswer[j][5];
+      t = characterAnswer[j][4];
+    }
+  } 
+  //var gif = "<p>" + t + "</p>";
+  //console.log(gif);
+  var gif = '<img src="' + t + '" id="answerGif" >';
+  alert(gif);
+}
+
+  </script>
+	
+
+</body>
+</html>
