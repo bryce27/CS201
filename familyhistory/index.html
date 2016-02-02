@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Family History To-Do's</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> 
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="list.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="list">
+
+    <img src="tree.jpg" class="img-circle">
+
+    <div class="container" style="margin: auto">
+
+        <h1>Family History To-Do's</h1>
+
+        <form ng-submit="add()" style="margin: auto;" class="form-inline">
+            <div class="form-group" style="margin: auto;">
+                <input class="form-control" id="first" type="text" ng-model="firstname" size="20" placeholder="First Name">
+                <input class="form-control" type="text" ng-model="lastname" size="20" placeholder="Last Name">
+                <br/>
+                <button class="btn btn-primary" type="submit" value="Add New Entry">Add new</button>
+            </div>
+        </form>
+
+        <br>
+        <div id="listDiv" >
+        <div ng-repeat="x in namesList" class="list-group">
+            <input type="checkbox" ng-model="x.done"> <span ng-bind="x.listText"></span>
+        </div>
+        </div>
+
+        <p><button class="btn btn-danger" ng-click="remove()">Remove checked names</button></p>
+
+    </div>
+
+</body>
+
+</html>

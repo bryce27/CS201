@@ -1,0 +1,29 @@
+body {
+	text-align: center;
+}
+
+body::after {
+  content: "";
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+
+/*input {
+	text-align: center;
+	margin-bottom: 10px;
+}*/
+
+input.form-control {
+	margin: auto;
+	max-width: 300px;
+	margin-bottom: 10px;
+}
+
+#listDiv {
+	text-align: left;
+	margin: auto;
+	max-width: 350px;
+}
