@@ -1,4 +1,3 @@
-
 var client_id = 'DNAN2RQAHMVDXWSQLQ1M4QRL1IDVC1V52DNSL2XMQMYHVJGI';
 var client_secret = 'D3XATFFORTW31NEXU120XJF012YFJRLTR0L4EHSCU5HK3QYC&v=20130815';
 var allPhotos = [];
@@ -21,9 +20,12 @@ var handlePhotos = function (photos, venue_name) {
 
 function displayPhotos(venue_name, photos){
 	console.log('photos: ', photos);
-	if (photos.length > 0) $('#photos').append('<h1>'+venue_name+'</h1>');
-	for (var i = 0; i < photos.length; i++){
-		$('#photos').append("<img  src='"+photos[i].prefix+'220x220'+photos[i].suffix+"' >");
+	if (photos.length > 0){ 
+		$('#photos').append('<h4>Venue: '+venue_name+'</h4>');
+		for (var i = 0; i < photos.length; i++){
+			$('#photos').append("<img class='img-rounded' src='"+photos[i].prefix+'220x220'+photos[i].suffix+"' >");
+		}
+		$('#photos').append('<br /><br /><br />');
 	}
 }
 
@@ -33,7 +35,9 @@ function getPictures(venue){
 	var url = makeUrl(endpoint);
 
 	return getJSON(url).then(function(response) {
+		$('i').remove();
 		return response.response.photos.items;
+
 	}).then(function(photos){
 		handlePhotos(photos, venue.name);
 	}).catch(function(err){
@@ -116,14 +120,16 @@ function downloadPhotosByLocation(loc){
 			getPictures(venues[i]);
 
 		};
+
 	});
 }
 
 $(document).ready(function(){
-
-
-	var loc = 'Provo, UT';
-	downloadPhotosByLocation(loc);
-
-
+   $("#button").click(function(e){
+      $("#photos").html('<i style="margin-top: 20px;" class="fa fa-spinner fa-spin fa-4x"></i>');
+      var loc = $("#location").val();
+      //console.log('Location 'loc' found!');
+      e.preventDefault();
+      downloadPhotosByLocation(loc);
+   });
 });

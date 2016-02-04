@@ -2,16 +2,38 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
+	
+	<div class="container text-center">
 
-	<div class="container text-center"><span id="photos"></span></div>
+		<h1>See pictures of any city!</h1>
+		
+		<form class="form-inline">
+			<div class="form-group">
+
+				<input type="text" id="location" type="submit">
+				<input id="button" type="submit" value="" style="">
+			</div>
+		</form>
+			<span id="photos"></span>
+	</div>
 	
 
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
 <script src="index.js"></script>
+<script>
+window.onload = function(){
+    var text_input = document.getElementById ('location');
+    text_input.focus ();
+    text_input.select ();
+  }
+  </script>
 
 
 </html>
