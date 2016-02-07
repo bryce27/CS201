@@ -1,0 +1,33 @@
+ul.User-list
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.Avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+
+
+img {
+    max-width: 100px !important;
+}
+
+h4 {
+	display: inline;
+	padding-left: 5px;
+}
+
+.container {
+	margin-top: 20px;
+}
+
+.form-control {
+	max-width: 300px !important;
+}

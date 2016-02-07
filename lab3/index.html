@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="image-picker/image-picker.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+  <script src="image-picker/image-picker.min.js"></script>
+  <script src="script.js"></script>
+  <script type="text/javascript" src="bs.js"></script>
+  <meta charset="utf-8">
+  <title>User Avatar Template</title>
+</head>
+<body>
+
+  <div ng-app='app' ng-controller='mainCtrl'>
+
+    <div class="container">
+
+    <div class="row">
+      <div class="col-lg-6">
+
+        <form class="form-vertical" role="form" name='userForm' ng-submit='addNew(userForm)'>
+
+          <fieldset>
+            <legend>Add a user</legend>
+
+            <div class="form-group">
+              <label for="input-text" class="control-label">Name</label>
+              <input type="text" class="form-control" id="input-text" placeholder="" ng-model='userForm.name'>
+            </div>
+
+            <div class="form-group">
+              <label for="selectImage" class="control-label">Avatar</label>
+              <select id="selectImage" class="image-picker" ng-model="userForm.url">
+                  <option data-img-src='avatars/android.jpg' value='avatars/android.jpg'>Android</option>
+                  <option data-img-src='avatars/mona.jpg' value='avatars/mona.jpg'>Mona Lisa</option>
+                  <option data-img-src='avatars/penguin.png' value='avatars/penguin.png'>Penguin</option>
+              </select>
+              <label for="avatar_url" class="control-label">Or enter a URL</label>
+              <input id="avatar_url" class="form-control" placeholder='Image Url' ng-model='userForm.url'/> 
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Add User</button>
+            </div>
+
+          </fieldset>
+
+        </form>
+      </div> <!-- column -->
+
+      <div class="col-lg-6">
+        <fieldset>
+            <legend>Users</legend>
+        </fieldset>
+
+        <ul class='User-list'>
+          <li ng-repeat='user in users'>
+            <avatar user='user' />
+          </li>
+        </ul>
+
+      </div>
+
+    </div> <!-- row -->
+    </div> <!-- container -->
+
+  </div>
+
+
+</body>
+</html>
