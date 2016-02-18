@@ -1,0 +1,39 @@
+* {
+  font-family: 'Lora', serif;
+  color: #404040;
+}
+
+p {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.part_of_speech {
+  font-weight: 900;
+  display: inline-block;
+  margin-right: 17px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.jumbosize {
+  font-size: 60px;
+}
+
+input {
+    background: transparent;
+    border: none;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+}
+
+input:focus {
+    outline: 0;
+}
+
+body {
+  margin-top: 30px;
+}

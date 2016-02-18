@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+
+  <meta charset="utf-8">
+  <title>Angular Dictionary</title>
+</head>
+
+<body ng-app="myApp" ng-controller="mainCtrl">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+        <input class="jumbosize" type='text' ng-model='word' />
+
+        <p id="message" style="display: none; text-align: center">Sorry, you've hit your API request limit for the day.</p>
+
+        <p style="text-align: center;"><span style="text-align: center;" id="spinner"></span></p>
+
+        <div ng-repeat="word in words">
+          <ul style="list-style-type: none"> <!-- each word -->
+
+            <h3 class="part_of_speech">{{word.partOfSpeech}}</h3>
+
+            <div>
+              <p style="display: inline;"> {{word.text}}
+              </p>
+            </div>
+
+          </ul> <!-- each word -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+  
+</body>
+
+</html>
+
+<script src="script.js"></script>
