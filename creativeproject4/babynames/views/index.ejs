@@ -1,0 +1,102 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+<style>
+
+</style>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="/stylesheets/style.css">
+
+<title>Baby Name Finder</title>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+</head>
+
+      <p style="text-align: center; color: white; font-size: 2.8em">Find the perfect name for the bun in the oven!</p>
+
+<body id="page-top" class="index" style="background-image: url('https://scontent-lax3-1.xx.fbcdn.net/hphotos-xpt1/v/t1.0-9/640_10208711993462052_5484180567509643654_n.jpg?oh=096ddcf87686a478b7f629a6f552bca2&oe=5761D7EB');
+    background-repeat: no-repeat; background-position: center; background-attachment: fixed;">
+
+    <div class="container" style="background-color: #cccccc; opacity: 0.9; max-width: 700px; margin:auto; margin-top: 100px; text-align: center;">
+
+        <form class="form-horizontal" role="form" style="text-align: center">
+          <div class="form-group">
+          	<div class="row">
+          	<div class="col-sm-10 col-sm-offset-1">
+            	<h3>Gender</h3>
+            	<div class="radio">
+				  <label><input type="radio" name="gender" id="boy_gender">Boy</label>
+				</div>
+				<div class="radio">
+				  <label><input type="radio" name="gender" id="girl_gender">Girl</label>
+				</div>
+            </div>
+        </div>
+            <div class="col-sm-10 col-sm-offset-1">
+            	<h3>Name starts with</h3>
+              <input class="form-control" id="firstLetters" value="" placeholder="begins with.." style="background-color: #eeeeee">
+            </div>
+            <div class="col-sm-10 col-sm-offset-1">
+            	<h3>Name ends with</h3>
+              <input class="form-control" id="lastLetters" value="" placeholder="ends with.." style="background-color: #eeeeee">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-10 col-sm-offset-1">          
+              <input id="button" type="submit" value="Submit" class="btn-primary">
+            </div>
+          </div>
+        </form>
+
+        <div class="col-sm-10 col-sm-offset-1">          
+                  <h3>Result:</h3> <span id="result"></span>
+         </div>
+
+
+    </div>
+</body>
+</html>
+
+
+<script>
+$(document).ready(function() {
+
+
+    $("#button").click(function(e) {
+    	e.preventDefault();
+    	var boy = $("#boy_gender")[0].checked;
+    	var girl = $("#girl_gender")[0].checked;
+
+    	var firstLetters = $('#firstLetters').val();
+    	var lastLetters = $('#lastLetters').val();
+
+    	var url;
+    	if(boy) url = '/getboy?first='+firstLetters+'&last='+lastLetters;
+    	if(girl) url = '/getgirl?first='+firstLetters+'&last='+lastLetters;
+
+        $.getJSON(url, function(data) {
+        	console.log('data', data);
+            var everything;
+            everything = "<ul style='margin: auto !important; padding: 0; padding-bottom: 20px;'>";
+
+            $.each(data, function(i) {
+                everything += "<li> " + data[i].name;
+            });
+            everything += "</ul>";
+
+            if( data.length < 1 ) $("#result").html('<span>No Results</span>');
+            else if ( firstLetters.length < 1 && lastLetters.length < 1){
+            	$("#result").html('<span>C\'mon, we need something to go on</span>');
+            }
+            else $("#result").html(everything);
+        });
+    });
+
+});
+
+</script>
